@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.com.bayesiannetwork">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".a_login"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,6 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".a_signup"
+            android:label="Sign Up"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity android:name=".transaction.activity_creditcard"
+            android:label="Register Card"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity android:name=".browse"
+            android:label="Products"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

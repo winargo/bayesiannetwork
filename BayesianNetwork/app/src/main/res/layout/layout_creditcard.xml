@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Register Card"
+        android:textColor="@color/overlay_dark_90"
+        android:textSize="14pt"
+        android:textAlignment="center"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        android:layout_marginTop="8sp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="120sp"
+            android:textSize="8pt"
+            android:textColor="@color/overlay_dark_90"
+            android:text="Card Number"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/overlay_dark_90"
+            android:backgroundTint="@color/colorPrimary"
+            android:id="@+id/rccardnumber"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:maxLines="1"
+            android:layout_marginLeft="5sp"
+            android:singleLine="true"
+            android:hint="Card Number"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="120sp"
+            android:textSize="8pt"
+            android:textColor="@color/overlay_dark_90"
+            android:text="Card Type"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/overlay_dark_90"
+            android:id="@+id/rccard_type"
+            android:text="Unknown"
+            android:layout_width="0sp"
+            android:enabled="false"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:maxLines="1"
+            android:layout_marginLeft="5sp"
+            android:singleLine="true"
+            android:hint="Password"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="120sp"
+            android:textSize="8pt"
+            android:textColor="@color/overlay_dark_90"
+            android:text="First name"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/overlay_dark_90"
+            android:id="@+id/rcfirstname"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:textCursorDrawable="@null"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_marginLeft="5sp"
+            android:singleLine="true"
+            android:hint="First name"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="120sp"
+            android:textSize="8pt"
+            android:textColor="@color/overlay_dark_90"
+            android:text="Last name"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/overlay_dark_90"
+            android:id="@+id/rclastname"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:textCursorDrawable="@null"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_marginLeft="5sp"
+            android:singleLine="true"
+            android:hint="Last name"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="120sp"
+            android:textSize="8pt"
+            android:textColor="@color/overlay_dark_90"
+            android:text="Billing Adress"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/overlay_dark_90"
+            android:id="@+id/rcaddress"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@null"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_marginLeft="5sp"
+            android:singleLine="true"
+            android:hint="Billing Address"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="120sp"
+            android:textSize="8pt"
+            android:textColor="@color/overlay_dark_90"
+            android:text="CVV"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/overlay_dark_90"
+            android:id="@+id/rccvv"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@null"
+            android:layout_marginLeft="5sp"
+            android:singleLine="true"
+            android:hint="Cvv"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="120sp"
+            android:textSize="8pt"
+            android:textColor="@color/overlay_dark_90"
+            android:text="Expires At"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/overlay_dark_90"
+            android:id="@+id/rcmonth"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@null"
+            android:layout_marginLeft="5sp"
+            android:singleLine="true"
+            android:hint="Month"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="/"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/overlay_dark_90"
+            android:id="@+id/rcyear"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@null"
+            android:layout_marginLeft="5sp"
+            android:singleLine="true"
+            android:hint="Year"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="120sp"
+            android:textSize="8pt"
+            android:textColor="@color/overlay_dark_90"
+            android:text="Card Limit"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="@color/overlay_dark_90"
+            android:id="@+id/rclimit"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@null"
+            android:layout_marginLeft="5sp"
+            android:singleLine="true"
+            android:hint="Card Limit"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="30sp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="300sp"
+            android:text="Register Card"
+            android:id="@+id/rcsave"
+            android:textSize="9pt"
+            android:textColor="@color/colorAccent"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
