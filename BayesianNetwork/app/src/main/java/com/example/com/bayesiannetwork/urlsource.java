@@ -6,10 +6,16 @@ import java.security.NoSuchAlgorithmException;
 public class urlsource {
     public static String server="192.168.5.8";
     public static String port="3000";
+
+    public static String ip = "";
+    public static String apikey = "";
+
+    public static String iplocationurl = "https://api.ipgeolocation.io/ipgeo?apiKey="+apikey+"&ip="+ip;
     
     public static String getloginurl = "http://"+server+":"+port+"/login";
 
-    public static String signupurl = "http://"+server+":"+port+"/signup";
+    public static String signupurl = "http://"+server+":"+port+"/register";
+    public static String signupcardurl = "http://"+server+":"+port+"/register/card";
 
     public static String getproducts = "http://"+server+":"+port+"/products";
     public static String gettransaction = "http://"+server+":"+port+"/transaction";

@@ -57,6 +57,7 @@
             android:id="@+id/password"
             android:layout_width="0sp"
             android:layout_weight="1"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorPrimary"
             android:maxLines="1"

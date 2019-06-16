@@ -3,6 +3,7 @@ package com.example.com.bayesiannetwork;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -37,12 +38,21 @@ public class a_login extends AppCompatActivity {
     EditText username,password;
     Button login,signup;
 
+    SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_login);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        prefs = getSharedPreferences("bayesiannetwork",MODE_PRIVATE);
+
+        if(prefs.getInt("login",0)==1){
+            startActivity(new Intent(a_login.this,browse.class));
+            finish();
+        }
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
@@ -108,8 +118,15 @@ public class a_login extends AppCompatActivity {
             try {
                 if (svrdata.getString("status").equals("true")) {
                     Toast.makeText(ctx, svrdata.getString("message"), Toast.LENGTH_SHORT).show();
+                    SharedPreferences.Editor edit  = prefs.edit();
+                    edit.putString("username",username);
+                    edit.putInt("login",1);
+                    edit.putString("password",password);
+                    edit.putString("email",svrdata.getString("email"));
+                    edit.apply();
                     Intent i = new Intent(ctx, browse.class);
                     startActivity(i);
+                    finish();
                 }
                 else{
                     Toast.makeText(ctx, svrdata.getString("message"), Toast.LENGTH_SHORT).show();

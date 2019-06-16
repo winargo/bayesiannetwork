@@ -119,6 +119,22 @@ app.get('/transaction',(req,res)=>{
 )
 })
 
+app.post('/payment',(req,res)=>{
+  var trans_id = req.body.trans_id;
+  pool.getConnection(function(err, conn) {
+        var sqldat = "select * from transaction"
+        conn.query(sqldat,[],(err,resdata)=>{
+          if(err){
+            log.info(err);
+          }
+          else{
+            res.json({status:true,message:"succes transactions",data:resdata})
+          }
+        })
+    }
+)
+})
+
 
 
 app.listen(port, () => console.log(`listening on port ${port}!`))
