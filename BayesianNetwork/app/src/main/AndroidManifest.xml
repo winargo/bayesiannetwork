@@ -30,8 +30,11 @@
             android:label="Register Card"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".browse"
+            android:name=".transaction.browse"
             android:label="Products"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".transaction.product_detail"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

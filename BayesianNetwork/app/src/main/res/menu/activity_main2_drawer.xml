@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_baseline_dashboard_24px"
             android:title="Product" />
         <item
+            android:id="@+id/cart"
+            android:icon="@drawable/ic_baseline_shopping_cart_24px"
+            android:title="Cart" />
+        <item
             android:id="@+id/transaction"
             android:icon="@drawable/ic_baseline_receipt_24px"
             android:title="Transactions" />

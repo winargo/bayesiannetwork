@@ -18,6 +18,10 @@ public class urlsource {
     public static String signupcardurl = "http://"+server+":"+port+"/register/card";
 
     public static String getproducts = "http://"+server+":"+port+"/products";
+    public static String getproductsimg = "http://"+server+"/bn/uploads/aktivitas/produk/";
+
+    public static String addtocardurl = "http://"+server+":"+port+"/addtocart";
+
     public static String gettransaction = "http://"+server+":"+port+"/transaction";
 
     public static final String md5(final String s) {

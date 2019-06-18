@@ -7,8 +7,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -17,8 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.com.bayesiannetwork.transaction.browse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,7 +49,7 @@ public class a_login extends AppCompatActivity {
         prefs = getSharedPreferences("bayesiannetwork",MODE_PRIVATE);
 
         if(prefs.getInt("login",0)==1){
-            startActivity(new Intent(a_login.this,browse.class));
+            startActivity(new Intent(a_login.this, browse.class));
             finish();
         }
 
@@ -116,21 +115,27 @@ public class a_login extends AppCompatActivity {
                 dialog.dismiss();
             }
             try {
-                if (svrdata.getString("status").equals("true")) {
-                    Toast.makeText(ctx, svrdata.getString("message"), Toast.LENGTH_SHORT).show();
-                    SharedPreferences.Editor edit  = prefs.edit();
-                    edit.putString("username",username);
-                    edit.putInt("login",1);
-                    edit.putString("password",password);
-                    edit.putString("email",svrdata.getString("email"));
-                    edit.apply();
-                    Intent i = new Intent(ctx, browse.class);
-                    startActivity(i);
-                    finish();
+                if(svrdata!=null){
+                    if (svrdata.getString("status").equals("true")) {
+                        Toast.makeText(ctx, svrdata.getString("message"), Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor edit  = prefs.edit();
+                        edit.putString("username",username);
+                        edit.putInt("login",1);
+                        edit.putString("password",password);
+                        edit.putString("email",svrdata.getString("email"));
+                        edit.apply();
+                        Intent i = new Intent(ctx, browse.class);
+                        startActivity(i);
+                        finish();
+                    }
+                    else{
+                        Toast.makeText(ctx, svrdata.getString("message"), Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else{
-                    Toast.makeText(ctx, svrdata.getString("message"), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ctx, "Tidak terkoneksi", Toast.LENGTH_SHORT).show();
                 }
+
             } catch (JSONException e1) {
                 e1.printStackTrace();
             }
@@ -165,6 +170,8 @@ public class a_login extends AppCompatActivity {
                 e.printStackTrace();
                 return null;
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e){
                 e.printStackTrace();
             }
 
