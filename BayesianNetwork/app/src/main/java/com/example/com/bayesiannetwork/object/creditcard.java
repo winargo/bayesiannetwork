@@ -1,11 +1,15 @@
 package com.example.com.bayesiannetwork.object;
 
 public class creditcard {
-    public String card_type,card_number,card_firstname,card_lastname,card_billing;
+    public String card_type,card_number,card_name,card_billing,card_id;
     public int cvv,month,year,limit;
 
     public int getCvv() {
         return cvv;
+    }
+
+    public String getCard_id() {
+        return card_id;
     }
 
     public int getLimit() {
@@ -23,17 +27,12 @@ public class creditcard {
     public String getCard_billing() {
         return card_billing;
     }
-
-    public String getCard_firstname() {
-        return card_firstname;
-    }
-
-    public String getCard_lastname() {
-        return card_lastname;
-    }
-
     public String getCard_number() {
         return card_number;
+    }
+
+    public void setCard_id(String card_id) {
+        this.card_id = card_id;
     }
 
     public String getCard_type() {
@@ -44,12 +43,12 @@ public class creditcard {
         this.card_billing = card_billing;
     }
 
-    public void setCard_firstname(String card_firstname) {
-        this.card_firstname = card_firstname;
+    public void setCard_name(String card_name) {
+        this.card_name = card_name;
     }
 
-    public void setCard_lastname(String card_lastname) {
-        this.card_lastname = card_lastname;
+    public String getCard_name() {
+        return card_name;
     }
 
     public void setCard_number(String card_number) {

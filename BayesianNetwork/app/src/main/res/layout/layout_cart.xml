@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:layout_margin="10sp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:id="@+id/viewall"
+
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_margin="5sp"
+            android:layout_width="120sp"
+            android:id="@+id/image"
+            android:src="@drawable/empty"
+            android:layout_height="120sp" />
+        <LinearLayout
+            android:layout_width="0sp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_margin="10sp"
+                android:textSize="9pt"
+                android:textColor="@color/overlay_dark_90"
+                android:textAlignment="textStart"
+                android:id="@+id/ptitle"
+                android:text="product loading..."
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="40sp"
+                    android:text="-"
+                    android:id="@+id/minus"
+                    android:textColor="@color/overlay_light_90"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_height="40sp" />
+                <TextView
+                    android:layout_width="60sp"
+                    android:text="QTY"
+                    android:id="@+id/qty"
+                    android:textSize="8pt"
+                    android:textColor="@color/overlay_dark_90"
+                    android:gravity="center"
+                    android:layout_height="match_parent" />
+                <Button
+                    android:layout_width="40sp"
+                    android:text="+"
+                    android:id="@+id/add"
+                    android:textColor="@color/overlay_light_90"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_height="40sp" />
+                <ImageButton
+                    android:layout_width="40sp"
+                    android:background="@null"
+                    android:id="@+id/remove"
+                    android:foreground="@drawable/ic_baseline_delete_24px"
+                    android:layout_marginLeft="40sp"
+                    android:textColor="@color/overlay_light_90"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_height="40sp" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_margin="10sp"
+                android:textSize="9pt"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="textStart"
+                android:id="@+id/pprice"
+                android:text="product Price"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

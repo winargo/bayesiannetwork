@@ -1,13 +1,14 @@
 package com.example.com.bayesiannetwork.object;
 
 public class product {
-    public String productname,image,description,id;
+    public String productname,image,description,id,img;
     int left;
     double price;
 
     public String getId() {
         return id;
     }
+
 
     public double getPrice() {
         return price;

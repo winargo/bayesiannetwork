@@ -23,8 +23,11 @@ import android.widget.Toast;
 import com.example.com.bayesiannetwork.R;
 import com.example.com.bayesiannetwork.a_login;
 import com.example.com.bayesiannetwork.adapter.mainmenu_adapter;
+import com.example.com.bayesiannetwork.creditcardlist;
 import com.example.com.bayesiannetwork.object.product;
+import com.example.com.bayesiannetwork.transactionlist;
 import com.example.com.bayesiannetwork.urlsource;
+import com.example.com.bayesiannetwork.userreport;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -88,7 +91,7 @@ public class browse extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            finish();
         }
     }
 
@@ -116,13 +119,13 @@ public class browse extends AppCompatActivity
         if (id == R.id.product) {
             // Handle the camera action
         } else if (id == R.id.transaction) {
-
+            startActivity(new Intent(browse.this, transactionlist.class));
         } else if (id == R.id.creditcard) {
-
+            startActivity(new Intent(browse.this, creditcardlist.class));
         } else if (id == R.id.report) {
-
+            startActivity(new Intent(browse.this, userreport.class));
         } else if (id == R.id.cart) {
-
+            startActivity(new Intent(browse.this, activity_cart.class));
         }else if (id == R.id.logout) {
             startActivity(new Intent(browse.this, a_login.class));
             finish();

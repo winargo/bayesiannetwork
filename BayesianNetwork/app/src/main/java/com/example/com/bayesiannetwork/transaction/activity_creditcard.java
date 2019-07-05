@@ -25,7 +25,7 @@ import java.util.Date;
 
 public class activity_creditcard extends AppCompatActivity {
 
-    EditText card_number,card_type,card_first,card_last,billing,cvv,month,year,limit;
+    EditText card_number,card_type,card_first,billing,cvv,month,year,limit;
 
     Button savecard,finish;
 
@@ -37,7 +37,6 @@ public class activity_creditcard extends AppCompatActivity {
         card_number = findViewById(R.id.rccardnumber);
         card_type = findViewById(R.id.rccard_type);
         card_first = findViewById(R.id.rcfirstname);
-        card_last = findViewById(R.id.rclastname);
         billing = findViewById(R.id.rcaddress);
         cvv = findViewById(R.id.rccvv);
         month = findViewById(R.id.rcmonth);
@@ -109,78 +108,72 @@ public class activity_creditcard extends AppCompatActivity {
                 }
                 else{
                     if(card_first.getText().toString().equals("")){
-                        Toast.makeText(activity_creditcard.this, "First Name Can't Be empty", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity_creditcard.this, "Card Name Can't Be empty", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        if(card_last.getText().toString().equals("")){
-                            Toast.makeText(activity_creditcard.this, "Last Name Can't Be empty", Toast.LENGTH_SHORT).show();
+                        if(billing.getText().toString().equals("")){
+                            Toast.makeText(activity_creditcard.this, "Billing Address Can't Be empty", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            if(billing.getText().toString().equals("")){
-                                Toast.makeText(activity_creditcard.this, "Billing Address Can't Be empty", Toast.LENGTH_SHORT).show();
+                            if(cvv.getText().toString().equals("")){
+                                Toast.makeText(activity_creditcard.this, "CVV Can't Be empty", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                if(cvv.getText().toString().equals("")){
-                                    Toast.makeText(activity_creditcard.this, "CVV Can't Be empty", Toast.LENGTH_SHORT).show();
+                                if(month.getText().toString().equals("")){
+                                    Toast.makeText(activity_creditcard.this, "Card Expiracy Month Can't Be empty", Toast.LENGTH_SHORT).show();
                                 }
                                 else{
-                                    if(month.getText().toString().equals("")){
-                                        Toast.makeText(activity_creditcard.this, "Card Expiracy Month Can't Be empty", Toast.LENGTH_SHORT).show();
+                                    if(Integer.valueOf(month.getText().toString())>12 || Integer.valueOf(month.getText().toString())<1){
+                                        Toast.makeText(activity_creditcard.this, "Card Expiracy month is invalid, specify ranges between (01-12)", Toast.LENGTH_SHORT).show();
                                     }
                                     else{
-                                        if(Integer.valueOf(month.getText().toString())>12 || Integer.valueOf(month.getText().toString())<1){
-                                            Toast.makeText(activity_creditcard.this, "Card Expiracy month is invalid, specify ranges between (01-12)", Toast.LENGTH_SHORT).show();
+                                        if(year.getText().toString().equals("")){
+                                            Toast.makeText(activity_creditcard.this, "Card Expiracy Year Can't Be empty", Toast.LENGTH_SHORT).show();
                                         }
                                         else{
-                                            if(year.getText().toString().equals("")){
-                                                Toast.makeText(activity_creditcard.this, "Card Expiracy Year Can't Be empty", Toast.LENGTH_SHORT).show();
+                                            Calendar cal = Calendar.getInstance();
+                                            cal.setTime(new Date());
+
+                                            Calendar cal1 = Calendar.getInstance();
+                                            cal1.setTime(new Date());
+
+                                            int years = cal.get(Calendar.YEAR);
+                                            int yearslater = years+50;
+                                            cal1.set(Calendar.YEAR,Integer.valueOf(year.getText().toString()));
+                                            cal1.set(Calendar.MONDAY,Integer.valueOf(month.getText().toString()));
+                                            if(Integer.valueOf(year.getText().toString())>yearslater || Integer.valueOf(year.getText().toString())<years || cal1.getTime().equals(cal.getTime())){
+                                                Toast.makeText(activity_creditcard.this, "Card Expiracy Year is invalid or expired, specify ranges between ("+years+"-"+yearslater+")", Toast.LENGTH_SHORT).show();
                                             }
                                             else{
-                                                Calendar cal = Calendar.getInstance();
-                                                cal.setTime(new Date());
-
-                                                Calendar cal1 = Calendar.getInstance();
-                                                cal1.setTime(new Date());
-
-                                                int years = cal.get(Calendar.YEAR);
-                                                int yearslater = years+50;
-                                                cal1.set(Calendar.YEAR,Integer.valueOf(year.getText().toString()));
-                                                cal1.set(Calendar.MONDAY,Integer.valueOf(month.getText().toString()));
-                                                if(Integer.valueOf(year.getText().toString())>yearslater || Integer.valueOf(year.getText().toString())<years || cal1.getTime().equals(cal.getTime())){
-                                                    Toast.makeText(activity_creditcard.this, "Card Expiracy Year is invalid or expired, specify ranges between ("+years+"-"+yearslater+")", Toast.LENGTH_SHORT).show();
+                                                if(limit.getText().toString().equals("")){
+                                                    Toast.makeText(activity_creditcard.this, "Card Transaction Limit Can't Be empty", Toast.LENGTH_SHORT).show();
                                                 }
                                                 else{
-                                                    if(limit.getText().toString().equals("")){
-                                                        Toast.makeText(activity_creditcard.this, "Card Transaction Limit Can't Be empty", Toast.LENGTH_SHORT).show();
-                                                    }
-                                                    else{
-                                                        creditcard data = new creditcard();
-                                                        data.setCard_billing(billing.getText().toString());
-                                                        data.setCard_firstname(card_first.getText().toString());
-                                                        data.setCard_number(card_number.getText().toString());
-                                                        data.setCard_type(card_type.getText().toString());
-                                                        data.setCvv(Integer.parseInt(cvv.getText().toString()));
-                                                        data.setCard_lastname(card_last.getText().toString());
-                                                        data.setMonth(Integer.parseInt(month.getText().toString()));
-                                                        data.setYear(Integer.parseInt(year.getText().toString()));
-                                                        data.setLimit(Integer.parseInt(limit.getText().toString().replace(" ","").replace(",","")));
-                                                        core.alllistcreditcard.add(data);
-                                                        Toast.makeText(activity_creditcard.this, core.alllistcreditcard.size()+" Credit card added", Toast.LENGTH_SHORT).show();
-                                                        card_number.setText("");
-                                                        card_type.setText("Unknown");
-                                                        card_first.setText("");
-                                                        card_last.setText("");
-                                                        billing.setText("");
-                                                        cvv.setText("");
-                                                        month.setText("");
-                                                        year.setText("");
-                                                        limit.setText("");
-                                                    }
+                                                    creditcard data = new creditcard();
+                                                    data.setCard_billing(billing.getText().toString());
+                                                    data.setCard_name(card_first.getText().toString());
+                                                    data.setCard_number(card_number.getText().toString());
+                                                    data.setCard_type(card_type.getText().toString());
+                                                    data.setCard_billing(billing.getText().toString());
+                                                    data.setCvv(Integer.parseInt(cvv.getText().toString()));
+                                                    data.setMonth(Integer.parseInt(month.getText().toString()));
+                                                    data.setYear(Integer.parseInt(year.getText().toString()));
+                                                    data.setLimit(Integer.parseInt(limit.getText().toString().replace(" ","").replace(",","")));
+                                                    core.alllistcreditcard.add(data);
+                                                    Toast.makeText(activity_creditcard.this, core.alllistcreditcard.size()+" Credit card added", Toast.LENGTH_SHORT).show();
+                                                    card_number.setText("");
+                                                    card_type.setText("Unknown");
+                                                    card_first.setText("");
+                                                    billing.setText("");
+                                                    cvv.setText("");
+                                                    month.setText("");
+                                                    year.setText("");
+                                                    limit.setText("");
                                                 }
                                             }
                                         }
-
                                     }
+
                                 }
                             }
                         }
