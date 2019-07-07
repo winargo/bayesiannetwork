@@ -77,8 +77,6 @@ public class creditcardlist_adapter extends RecyclerView.Adapter<RecyclerView.Vi
         public TextView number,name;
         public View lyt_parent;
 
-        Button add,minus;
-        ImageButton thrower;
 
         public OriginalViewHolder(View v) {
             super(v);

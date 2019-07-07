@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -125,7 +126,7 @@ public class browse extends AppCompatActivity
         } else if (id == R.id.report) {
             startActivity(new Intent(browse.this, userreport.class));
         } else if (id == R.id.cart) {
-            startActivity(new Intent(browse.this, activity_cart.class));
+            startActivityForResult(new Intent(browse.this, activity_cart.class),20);
         }else if (id == R.id.logout) {
             startActivity(new Intent(browse.this, a_login.class));
             finish();
@@ -235,6 +236,18 @@ public class browse extends AppCompatActivity
 
 
             return "";
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode==20){
+            if(resultCode==RESULT_OK){
+                Toast.makeText(browse.this, "success check out", Toast.LENGTH_LONG).show();
+            }
+        }
+        else{
+
         }
     }
 }

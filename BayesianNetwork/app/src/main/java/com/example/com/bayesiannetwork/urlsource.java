@@ -22,6 +22,7 @@ public class urlsource {
     public static String signupcardurl = "http://"+server+":"+port+"/register/card";
 
     public static String getproducts = "http://"+server+":"+port+"/products";
+    public static String gettransaction = "http://"+server+":"+port+"/transaction";
     public static String getproductsimg = "http://"+server+"/bn/uploads/aktivitas/produk/";
 
     public static String addtocardurl = "http://"+server+":"+port+"/addtocart";
@@ -31,10 +32,9 @@ public class urlsource {
     public static String removecarturl = "http://"+server+":"+port+"/cart/remove";
 
     public static String checkouturl = "http://"+server+":"+port+"/checkout";
+    public static String checkoutnurl = "http://"+server+":"+port+"/checkoutn";
     public static String creditcardurl = "http://"+server+":"+port+"/creditcard";
     public static String deletecreditcardurl = "http://"+server+":"+port+"/deletecreditcard";
-
-    public static String gettransaction = "http://"+server+":"+port+"/transaction";
 
     public static final String md5(final String s) {
         final String MD5 = "MD5";

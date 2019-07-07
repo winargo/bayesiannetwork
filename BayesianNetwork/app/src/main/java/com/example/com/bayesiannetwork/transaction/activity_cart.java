@@ -217,6 +217,7 @@ public class activity_cart extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1001){
             if(resultCode==RESULT_OK){
+                setResult(RESULT_OK);
                 finish();
             }
         }
