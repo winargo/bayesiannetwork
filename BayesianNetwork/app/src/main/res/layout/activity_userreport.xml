@@ -47,6 +47,7 @@
 
                 <TextView
                     android:layout_width="0sp"
+                    android:layout_marginLeft="20sp"
                     android:layout_weight="0.5"
                     android:textSize="9pt"
                     android:text="Full Name"
@@ -56,8 +57,9 @@
                 <EditText
                     android:layout_width="0sp"
                     android:layout_weight="1"
+
                     android:id="@+id/fullname"
-                    android:text="Full Name"
+                    android:hint="Full Name"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
@@ -68,6 +70,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:layout_marginLeft="20sp"
                     android:layout_width="0sp"
                     android:layout_weight="0.5"
                     android:textSize="9pt"
@@ -79,13 +82,20 @@
                     android:layout_width="0sp"
                     android:layout_weight="1"
                     android:id="@+id/email"
-                    android:text="Email"
+                    android:hint="Email"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Select Issue"
+                android:layout_marginLeft="20sp"
+                android:layout_height="wrap_content" />
             <Spinner
+                android:layout_marginLeft="20sp"
                 android:layout_width="match_parent"
                 android:minHeight="50sp"
+                android:id="@+id/dropdown"
                 android:layout_height="wrap_content">
 
             </Spinner>
@@ -102,6 +112,7 @@
                 android:src="@drawable/empty"
                 android:layout_height="100sp" />
             <TextView
+                android:layout_marginTop="20sp"
                 android:layout_width="match_parent"
                 android:text="Message"
                 android:layout_marginLeft="30sp"
