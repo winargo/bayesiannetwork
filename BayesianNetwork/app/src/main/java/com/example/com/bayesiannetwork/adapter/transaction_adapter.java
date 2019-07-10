@@ -453,7 +453,7 @@ public class transaction_adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         String password;
         ProgressDialog dialog;
         SharedPreferences prefs;
-        String urldata= urlsource.checkoutpurl;
+        String urldata= urlsource.getpayment;
         JSONObject svrdata;
         Context ctx;
         String iddata;

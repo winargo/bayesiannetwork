@@ -67,6 +67,8 @@ public class detailcart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
+
+
         paynow = findViewById(R.id.btnpaynow);
         paylater = findViewById(R.id.btnpaylater);
 
@@ -82,14 +84,31 @@ public class detailcart extends AppCompatActivity {
 
         rv = findViewById(R.id.productsdata);
 
+
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        if(getIntent().getStringExtra("tid")==null){
+            viewcart add = new viewcart(detailcart.this);
+            add.execute();
+        }
+        else{
+            if(!getIntent().getStringExtra("tid").equals("")){
+                paylater.setVisibility(View.GONE);
+                paynow.setVisibility(View.GONE);
+                viewcart add = new viewcart(detailcart.this,Integer.parseInt(getIntent().getStringExtra("tid")));
+                add.execute();
+            }
+            else{
+                viewcart add = new viewcart(detailcart.this);
+                add.execute();
+            }
+        }
 
 
-        viewcart add = new viewcart(detailcart.this);
-        add.execute();
+
     }
 
     public class viewcart extends AsyncTask<String, String, String> {
@@ -101,9 +120,20 @@ public class detailcart extends AppCompatActivity {
         JSONObject svrdata;
         Context ctx;
         String iddata;
+        int data = 0 ;
 
         public viewcart(Context ctx ){
             this.ctx = ctx;
+            prefs = getSharedPreferences("bayesiannetwork",MODE_PRIVATE);
+            this.iddata = prefs.getString("username","");
+            dialog = new ProgressDialog(ctx);
+            dialog.setMessage("Loading activity_cart...");
+            dialog.show();
+        }
+
+        public viewcart(Context ctx,int data ){
+            this.ctx = ctx;
+            this.data = data;
             prefs = getSharedPreferences("bayesiannetwork",MODE_PRIVATE);
             this.iddata = prefs.getString("username","");
             dialog = new ProgressDialog(ctx);
@@ -197,8 +227,11 @@ public class detailcart extends AppCompatActivity {
             try {
                 OkHttpClient client = new OkHttpClient();
 
+                Log.e("data",data+"" );
+
                 RequestBody body=new FormBody.Builder()
                         .add("username",prefs.getString("username",""))
+                        .add("number",data+"")
                         .build();
 
                 Request request = new Request.Builder()
