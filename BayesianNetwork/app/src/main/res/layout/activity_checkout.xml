@@ -46,7 +46,7 @@
                     android:layout_weight="1"
                     android:textSize="9pt"
                     android:textColor="@color/overlay_dark_90"
-                    android:text="Total Harga"
+                    android:text="Total Price"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:layout_width="0sp"
@@ -68,7 +68,7 @@
                     android:layout_weight="1"
                     android:textSize="9pt"
                     android:textColor="@color/overlay_dark_90"
-                    android:text="Total Ongkir"
+                    android:text="Shipping fee"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:layout_width="0sp"
@@ -90,7 +90,7 @@
                     android:layout_weight="1"
                     android:textSize="9pt"
                     android:textColor="@color/overlay_dark_90"
-                    android:text="Total Pembayaran"
+                    android:text="Total Payment"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:layout_width="0sp"

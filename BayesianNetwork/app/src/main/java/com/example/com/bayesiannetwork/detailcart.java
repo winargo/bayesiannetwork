@@ -80,7 +80,7 @@ public class detailcart extends AppCompatActivity {
         noproduct = findViewById(R.id.noproduct);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Cart");
+        toolbar.setTitle("Checkout");
 
         rv = findViewById(R.id.productsdata);
 

@@ -1,12 +1,17 @@
 package com.example.com.bayesiannetwork.transaction;
 
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,8 +21,12 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +38,7 @@ import com.example.com.bayesiannetwork.object.product;
 import com.example.com.bayesiannetwork.transactionlist;
 import com.example.com.bayesiannetwork.urlsource;
 import com.example.com.bayesiannetwork.userreport;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +47,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -53,6 +64,8 @@ public class browse extends AppCompatActivity
     RecyclerView rv;
 
     mainmenu_adapter adapter;
+    MaterialSearchView searchView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +95,33 @@ public class browse extends AppCompatActivity
         usrname.setText(prefs.getString("username",""));
         email.setText(prefs.getString("email",""));
 
+        searchView = (MaterialSearchView) findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                adapter.getFilter().filter(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                adapter.getFilter().filter("");
+            }
+        });
+
         loadproducts load = new loadproducts(this);
         load.execute();
     }
@@ -94,6 +134,35 @@ public class browse extends AppCompatActivity
         } else {
             finish();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        final MenuItem item=menu.findItem(R.id.search_bar);
+
+
+
+        int[][] states = new int[][] {
+                new int[] { android.R.attr.state_enabled}, // enabled
+                new int[] {-android.R.attr.state_enabled}, // disabled
+                new int[] {-android.R.attr.state_checked}, // unchecked
+                new int[] { android.R.attr.state_pressed}  // pressed
+        };
+
+        int[] colors = new int[] {
+                Color.WHITE,
+                Color.GRAY,
+                Color.GREEN,
+                Color.WHITE
+        };
+
+        ColorStateList myList = new ColorStateList(states, colors);
+        item.setIconTintList(myList);
+        searchView.setMenuItem(item);
+
+        return true;
     }
 
     @Override

@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,11 +21,12 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mainmenu_adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class mainmenu_adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
 
     DecimalFormat formatter = new DecimalFormat("###,###,###.00");
 
     List<product> items = new ArrayList<>();
+    List<product> itemsfilter = new ArrayList<>();
 
     private OnLoadMoreListener onLoadMoreListener;
 
@@ -42,6 +45,7 @@ public class mainmenu_adapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public mainmenu_adapter(Context context, List<product> items) {
         this.items = items;
+        this.itemsfilter = items;
         ctx = context;
     }
 
@@ -72,7 +76,7 @@ public class mainmenu_adapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        final product obj = items.get(position);
+        final product obj = itemsfilter.get(position);
         if (holder instanceof OriginalViewHolder) {
             OriginalViewHolder view = (OriginalViewHolder) holder;
             if(obj.getImage().equals("")){
@@ -111,7 +115,7 @@ public class mainmenu_adapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return itemsfilter.size();
     }
 
     public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
@@ -120,6 +124,62 @@ public class mainmenu_adapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public interface OnLoadMoreListener {
         void onLoadMore(int current_page);
+    }
+
+    public void setItems(List<product> filteredGalaxies)
+    {
+        this.itemsfilter=filteredGalaxies;
+    }
+
+    @Override
+    public Filter getFilter() {
+        //this.itemsfilter=items;
+        return new Filter() {
+
+
+            @Override
+            protected Filter.FilterResults performFiltering(CharSequence constraint) {
+                Filter.FilterResults filterResults = new Filter.FilterResults();
+
+                if (constraint.length() > 0) {
+                    //CHANGE TO UPPER
+                    constraint = constraint.toString().toUpperCase();
+
+                    //HOLD FILTERS WE FIND
+                    List<product> foundFilters = new ArrayList<>();
+
+                    String galaxy;
+
+                    //ITERATE CURRENT LIST
+                    for (int i = 0; i < items.size(); i++) {
+                        galaxy = items.get(i).getProductname();
+
+                        //SEARCH
+                        if (galaxy.toUpperCase().contains(constraint)) {
+                            //ADD IF FOUND
+                            foundFilters.add(items.get(i));
+                        }
+                    }
+
+                    //SET RESULTS TO FILTER LIST
+                    filterResults.count = foundFilters.size();
+                    filterResults.values = foundFilters;
+                } else {
+                    //NO ITEM FOUND.LIST REMAINS INTACT
+                    filterResults.count = items.size();
+                    filterResults.values = items;
+                }
+
+                //RETURN RESULTS
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, Filter.FilterResults filterResults) {
+                setItems((List<product>) filterResults.values);
+                notifyDataSetChanged();
+            }
+        };
     }
 
 }

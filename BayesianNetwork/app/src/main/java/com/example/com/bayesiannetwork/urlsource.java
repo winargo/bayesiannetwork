@@ -11,7 +11,7 @@ public class urlsource {
 
 
 
-    public static String server="192.168.5.8";
+    public static String server="192.168.5.12";
     //public static String server="172.20.10.12";
     public static String port="3000";
 

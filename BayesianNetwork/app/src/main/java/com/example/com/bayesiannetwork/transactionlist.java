@@ -46,7 +46,7 @@ public class transactionlist extends AppCompatActivity {
         setContentView(R.layout.activity_transaction);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Transaction List");
+        toolbar.setTitle("Transaction History");
 
         rv = findViewById(R.id.transactiondata);
         notransaction = findViewById(R.id.notransaction);
