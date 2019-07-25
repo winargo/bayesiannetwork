@@ -48,7 +48,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:text="Tambah Kartu"
+        android:text="Add Card"
         android:id="@+id/buttonadd"
         android:layout_gravity="bottom"
         android:textColor="@color/colorAccent"

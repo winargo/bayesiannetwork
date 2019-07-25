@@ -25,6 +25,7 @@
   **[] $VALUES;
   public *;
 }
-
+-keep public interface android.support.test.espresso.IdlingResource$ResourceCallback {*;}
 # for DexGuard only
 -keepresourcexmlelements manifest/application/meta-data@value=GlideModule
+

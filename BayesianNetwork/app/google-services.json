@@ -1,0 +1,96 @@
+{
+  "project_info": {
+    "project_number": "60826284823",
+    "firebase_url": "https://shopeef-5eda6.firebaseio.com",
+    "project_id": "shopeef-5eda6",
+    "storage_bucket": "shopeef-5eda6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60826284823:android:c976cbd618191687",
+        "android_client_info": {
+          "package_name": "com.example.com.bayesiannetwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60826284823-v0s220j1v1p0qicqanlabvte03o8jr90.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.com.bayesiannetwork",
+            "certificate_hash": "622465487c1d1377da28927e9e4523c470b56865"
+          }
+        },
+        {
+          "client_id": "60826284823-2eg595murn94pd8fb47ljp4vof33d6fd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.com.bayesiannetwork",
+            "certificate_hash": "6227c6a32ec009c4e592a2ec56086ff5cc9e6cae"
+          }
+        },
+        {
+          "client_id": "60826284823-c5qhqh6botk4frscv7bb38jka41u7uov.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.com.bayesiannetwork",
+            "certificate_hash": "b649b6d1f6a7b890920a19b541c5388f19066621"
+          }
+        },
+        {
+          "client_id": "60826284823-r2tmlrabuqc5vr5oo5l8p26o3jehq5mc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.com.bayesiannetwork",
+            "certificate_hash": "e44e274434386bf9ae03976d7f53fb6db475e38d"
+          }
+        },
+        {
+          "client_id": "60826284823-fa5s5rarqpq39c6puqp3qml98k3evbki.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.com.bayesiannetwork",
+            "certificate_hash": "c78529c4feeb4a89bb6700042ee0f6efe88ed443"
+          }
+        },
+        {
+          "client_id": "60826284823-qcdf4hpp6k0eofe6og6g4366ftgijpf6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.com.bayesiannetwork",
+            "certificate_hash": "de5f24884f26be1421712473b3934f637c95ea9b"
+          }
+        },
+        {
+          "client_id": "60826284823-3ba6vn6jiq39nia3f1kjiu8uo384i8k5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.com.bayesiannetwork",
+            "certificate_hash": "9df9704b2ec95471e06b4ada0109cbf71cb2dd29"
+          }
+        },
+        {
+          "client_id": "60826284823-s36tr686l6152a7rueinjh8vo04pm9rg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW3Km3SuGUewrF2dq8M7SeQWNLNUDFdhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60826284823-s36tr686l6152a7rueinjh8vo04pm9rg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

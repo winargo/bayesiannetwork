@@ -12,6 +12,7 @@ public class urlsource {
 
 
     public static String server="192.168.5.12";
+    //public static String server="192.168.5.33";
     //public static String server="172.20.10.12";
     public static String port="3000";
 
@@ -97,5 +98,7 @@ public class urlsource {
         } // for now eat exceptions
         return "";
     }
+
+
 
 }

@@ -159,7 +159,7 @@ public class browse extends AppCompatActivity
         };
 
         ColorStateList myList = new ColorStateList(states, colors);
-        item.setIconTintList(myList);
+        //item.setIconTintList(myList);
         searchView.setMenuItem(item);
 
         return true;

@@ -53,6 +53,8 @@ public class a_login extends AppCompatActivity {
             finish();
         }
 
+        Log.e("tokendata",getSharedPreferences("bayesiannetwork",MODE_PRIVATE).getString("tokennotif",""));
+
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
 
@@ -149,6 +151,7 @@ public class a_login extends AppCompatActivity {
                 RequestBody body=new FormBody.Builder()
                         .add("username",username)
                         .add("password",password)
+                        .add("keys",getSharedPreferences("bayesiannetwork",MODE_PRIVATE).getString("tokennotif",""))
                         .build();
 
                 Request request = new Request.Builder()
