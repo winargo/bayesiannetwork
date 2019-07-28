@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <TextView
+        android:layout_width="0sp"
+        android:id="@+id/email"
+        android:text="testing"
+        android:textAlignment="center"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="0sp"
+        android:id="@+id/type"
+        android:text="testing"
+        android:textAlignment="center"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="0sp"
+        android:id="@+id/message"
+        android:text="testing"
+        android:textAlignment="center"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+</LinearLayout>

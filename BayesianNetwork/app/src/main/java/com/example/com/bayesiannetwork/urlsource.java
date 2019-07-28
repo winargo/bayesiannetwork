@@ -11,9 +11,9 @@ public class urlsource {
 
 
 
-    public static String server="192.168.5.12";
+    //public static String server="192.168.5.12";
     //public static String server="192.168.5.33";
-    //public static String server="172.20.10.12";
+    public static String server="172.20.10.12";
     public static String port="3000";
 
     public static String ip = "";
@@ -44,6 +44,7 @@ public class urlsource {
     public static String deletecreditcardurl = "http://"+server+":"+port+"/deletecreditcard";
 
     public static String userreporturl = "http://"+server+":"+port+"/userreport";
+    public static String userreporttestingurl = "http://"+server+":"+port+"/userreporttest";
 
     public static final String md5(final String s) {
         final String MD5 = "MD5";

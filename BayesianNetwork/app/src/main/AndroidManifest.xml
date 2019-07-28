@@ -57,6 +57,9 @@
         <activity
             android:name=".userreport"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".userreporttesting"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service android:name=".firebaseservice">
             <intent-filter>

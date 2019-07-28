@@ -53,20 +53,16 @@ public class firebaseservice extends FirebaseMessagingService {
         //Log.e("Msgnodejsbody", "From: " + remoteMessage.getNotification().getBody());
         JSONObject notif = new JSONObject(remoteMessage.getData());
         try {
-            showNotification(notif.getString("title"),notif.getString("content"),notif.getString("port"),notif.getString("kode"));
+            showNotification(notif.getString("title"),notif.getString("content"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
 
-    private void showNotification(String title, String content,String port,String kode) {
+    private void showNotification(String title, String content) {
 
-        if(getSharedPreferences("bayesiannetwork",MODE_PRIVATE).getString("port","").equals("")){
 
-        }
-        else {
-            if(getSharedPreferences("bayesiannetwork",MODE_PRIVATE).getString("port","").equals(port)){
                 NotificationManager mNotificationManager =
                         (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
@@ -75,9 +71,9 @@ public class firebaseservice extends FirebaseMessagingService {
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                     NotificationChannel channel = new NotificationChannel("default",
-                            "Prima Optimasi",
+                            "Bayesian Network",
                             NotificationManager.IMPORTANCE_HIGH);
-                    channel.setDescription("Prima Optimasi");
+                    channel.setDescription("Bayesian Network");
 //                    mNotificationManager.createNotificationChannel(channel);
                     // Configure the notification channel.
                     channel.setDescription("New Notification");
@@ -114,11 +110,6 @@ public class firebaseservice extends FirebaseMessagingService {
 //                    mp.start();
                     mNotificationManager.notify(value, mBuilder.build());
 //                    notificationManager.notify(value,mBuilder.build());
-
-            }else{
-
-            }
-        }
     }
 }
 /**/
