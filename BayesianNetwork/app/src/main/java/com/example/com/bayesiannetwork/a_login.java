@@ -49,7 +49,7 @@ public class a_login extends AppCompatActivity {
         prefs = getSharedPreferences("bayesiannetwork",MODE_PRIVATE);
 
         if(prefs.getInt("login",0)==1){
-            startActivity(new Intent(a_login.this,userreporttesting.class));
+            startActivity(new Intent(a_login.this,browse.class));
             finish();
         }
 
@@ -130,7 +130,7 @@ public class a_login extends AppCompatActivity {
                         edit.putString("email",svrdata.getString("email"));
                         edit.apply();
 
-                        startActivity(new Intent(a_login.this,userreporttesting.class));
+                        startActivity(new Intent(a_login.this,browse.class));
                         finish();
                     }
                     else{
