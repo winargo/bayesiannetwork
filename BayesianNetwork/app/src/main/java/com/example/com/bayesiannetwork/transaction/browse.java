@@ -1,5 +1,6 @@
 package com.example.com.bayesiannetwork.transaction;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -26,6 +27,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -99,15 +101,17 @@ public class browse extends AppCompatActivity
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                adapter.getFilter().filter(query);
+                hideKeyboard(browse.this);
                 return true;
             }
+
 
             @Override
             public boolean onQueryTextChange(String newText) {
                 adapter.getFilter().filter(newText);
                 return false;
             }
+
         });
 
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
@@ -118,7 +122,7 @@ public class browse extends AppCompatActivity
 
             @Override
             public void onSearchViewClosed() {
-                adapter.getFilter().filter("");
+
             }
         });
 
@@ -318,5 +322,16 @@ public class browse extends AppCompatActivity
         else{
 
         }
+    }
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

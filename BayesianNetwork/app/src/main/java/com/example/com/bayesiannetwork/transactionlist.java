@@ -29,8 +29,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class transactionlist extends AppCompatActivity {
@@ -138,8 +140,14 @@ public class transactionlist extends AppCompatActivity {
         protected String doInBackground(String... params) {
             try {
                 OkHttpClient client = new OkHttpClient();
+
+                RequestBody body=new FormBody.Builder()
+                        .add("username",ctx.getSharedPreferences("bayesiannetwork",MODE_PRIVATE).getString("username",""))
+                        .build();
+
                 Request request = new Request.Builder()
                         .url(urldata)
+                        .post(body)
                         .build();
                 Response responses = null;
 

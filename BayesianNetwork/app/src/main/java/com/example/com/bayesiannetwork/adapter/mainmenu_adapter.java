@@ -133,7 +133,6 @@ public class mainmenu_adapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public Filter getFilter() {
-        //this.itemsfilter=items;
         return new Filter() {
 
 
