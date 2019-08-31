@@ -5,7 +5,6 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:textColorSecondary">@color/overlay_light_90</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
@@ -16,7 +15,7 @@
 
     <style name="AppCompatAlertDialogStyle" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/colorPrimary</item>
-        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/overlay_dark_90</item>
         <item name="android:background">@color/colorAccent</item>
     </style>
 

@@ -113,7 +113,6 @@ public class transactionlist extends AppCompatActivity {
                                 pro.setTstatus(obj.getString("transaction_process"));
                                 listdata.add(pro);
                             }
-
                             notransaction.setVisibility(View.GONE);
                             adapter = new transaction_adapter(ctx,listdata);
                             rv.setVisibility(View.VISIBLE);
